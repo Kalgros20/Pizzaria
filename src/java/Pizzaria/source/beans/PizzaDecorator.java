@@ -9,22 +9,23 @@ package Pizzaria.source.beans;
  *
  * @author Marciano
  */
-public abstract class PizzaDecorator implements Pedido{
-    protected Pedido pedido;
+public abstract class PizzaDecorator implements Produto{
+    protected Produto pedido;
     protected String nome;
     protected double preco;
 
-    public PizzaDecorator(String nome, double preco, Pedido pedido) {
+    public PizzaDecorator(String nome, double preco, Produto pedido) {
         this.nome = nome;
         this.preco = preco;
         this.pedido = pedido;
     }
 
-    // O preço é delegado para a implementação concreta
+    // Delegações para a implementação concreta
+    
+    @Override
     public abstract double getPreco();
-
-    // Label default é fornecido
-    public String getLabel() {
-        return pedido.getNome() + ", " + this.nome; // alteração do comportamento em tempo de execução (retorno do nome da pizza + do complemento que foi pedido)
-    }
+    
+    @Override
+    public abstract String getNome();      
+    
 }

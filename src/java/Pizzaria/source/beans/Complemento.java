@@ -10,7 +10,7 @@ package Pizzaria.source.beans;
  * @author Marciano
  */
 public class Complemento extends PizzaDecorator{
-    public Complemento(String label, double preco, Pedido pedido) {
+    public Complemento(String label, double preco, Produto pedido) {
         super(label, preco, pedido);
     }
 
@@ -21,6 +21,6 @@ public class Complemento extends PizzaDecorator{
 
     @Override
     public String getNome() {
-        return pedido.getNome()+ " com " + this.nome;
+        return pedido.getNome()+ " + " + this.nome;
     }
 }

@@ -7,9 +7,25 @@ package Pizzaria.source.beans;
 
 /**
  *
- * @author carlysson
+ * @author Marciano
  */
-public interface Pedido {
-    public String getNome();
-    public double getPreco();
+public abstract class Pedido {
+    
+    final void NovoPedido() { // TEMPLATE METHOD
+        getProduto();
+        getCliente();
+        AplicaDesconto();
+    }
+
+    abstract void AplicaDesconto();    
+    
+    final void getProduto(){
+        
+    }
+    
+    final void getCliente(){
+        
+    }
+   
+    
 }

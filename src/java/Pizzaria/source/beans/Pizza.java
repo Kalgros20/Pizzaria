@@ -10,7 +10,7 @@ package Pizzaria.source.beans;
  *
  * @author carlysson
  */
-public class Pizza implements Pedido{
+public class Pizza implements Produto{
     private String nome;
     private double preco;
     
@@ -18,7 +18,10 @@ public class Pizza implements Pedido{
         this.nome = nome;
         this.preco = preco;
     }
-
+    
+    public void exibePizza(){
+        System.out.println("Pizza: " + this.getNome() + "\nValor a pagar: R$" + this.getPreco());
+    }
     
     @Override
     public String getNome() {

@@ -16,6 +16,18 @@ public enum Cliente { // Singleton implementado via enumeração
     private String endereco;
     
     Cliente(){} // Construtor private(por padrão) vazio
+    
+    public void NovoCliente(String nome, String endereco){        
+        this.INSTANCE.setNome(nome);
+        this.INSTANCE.setEndereco(endereco);        
+    }
+    
+    public void ExibeCliente(){        
+        System.out.println("Cliente: "+ this.INSTANCE.getNome());
+        System.out.println("Endereço: "+ this.INSTANCE.getEndereco());
+        System.out.println("Endereco do objeto na memoria: " + this.INSTANCE.hashCode()); // exibindo o endereço do objeto na memoria
+        System.out.println("--------------------------------------------------------------------");
+    }
        
     public String getNome() {
        return this.nome; 

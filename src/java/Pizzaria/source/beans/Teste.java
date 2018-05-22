@@ -10,30 +10,23 @@ package Pizzaria.source.beans;
  * @author Marciano
  */
 public class Teste {
-    public static void main(String[] args){
-        Cliente cli = null; // criação do objeto Cliente sem instanciá-lo
-        cli.INSTANCE.setNome("Victor Marciano"); // atribuindo os valores ao objeto através dos setters
-        cli.INSTANCE.setEndereco("Rua Lourdes Rabello - Vila Galvão"); // atribuindo os valores ao objeto através dos setters
+    public static void main(String[] args){        
+        Cliente cli = null;
+        cli.INSTANCE.NovoCliente("Victor Marciano", "Rua Lourdes Rabello - Vila Galvão");
+        cli.INSTANCE.ExibeCliente();
         
-        Pedido pedido1 = new Pizza("Pizza com Decorator", 10); // atribuição dos valores da pizza no pedido
-        pedido1 = new Complemento("Borda Recheada", 5, pedido1); // Pizza "Decorada"       
-         // Chamada do objeto Singleton
-        System.out.println("Pizza: " + pedido1.getNome() + "\nValor a pagar: R$"+pedido1.getPreco()); // Imprime os valor da pizza e seus complementos
-        System.out.println("Cliente: " + cli.INSTANCE.getNome() + "\nEndereço: "+cli.INSTANCE.getEndereco());
-        System.out.println("\nEndereco do objeto na memoria: " + cli.INSTANCE.hashCode()); // exibindo o endereço do objeto na memoria
-        System.out.println("\nEndereco do pedido na memoria: " + pedido1.hashCode()); // o valor será diferente do segundo
-        // Novo Pedido
+        Produto produto1 = new Pizza("Pizza com Decorator", 10); // atribuição dos valores da pizza no pedido
+        produto1 = new Complemento("Borda Recheada", 5, produto1); // Pizza "Decorada" 
         
-        Pedido pedido2 = new Pizza("Pizza sem Decorator", 10); // Pizza sem implementação do decorator
-        System.out.println("\nPizza: " + pedido2.getNome() + "\nValor a pagar: R$"+pedido2.getPreco()); // Imprime os valor da pizza e seus complementos
+        System.out.println("Pizza: " + produto1.getNome() + "\nValor a pagar: R$"+produto1.getPreco()); // Imprime os valor da pizza e seus complementos
+        //System.out.println("Cliente: " + cli.INSTANCE.getNome() + "\nEndereço: "+cli.INSTANCE.getEndereco());
         
-        cli.INSTANCE.setNome("Novo nome"); // sobreescreve os dados utilizando a mesma instancia
-        cli.INSTANCE.setEndereco("Novo endereco");        
+        Cliente cli2 = null;
+        cli2.INSTANCE.NovoCliente("Maria das Dores", "Avenida Timóteo Penteado - Centro"); // sobrescreve a instancia ja existente
+        cli2.INSTANCE.ExibeCliente(); // exibe os dados do novo cliente e o valor do objeto(se for igual o anterior o Singleton está correto)
+                                
+        Produto produto2 = new Pizza("Pizza sem Decorator", 10); // Pizza sem implementação do decorator
         
-        // exibindo o endereço do objeto/pedido na memoria(se o valor for o mesmo da instancia anterior é porque o Singleton está correto)
-        
-        System.out.println("Cliente: " + cli.INSTANCE.getNome() + "\nEndereço: " + cli.INSTANCE.getEndereco());       
-        System.out.println("\nEndereco do objeto na memoria: " + cli.INSTANCE.hashCode());
-        System.out.println("\nEndereco do pedido na memoria: " + pedido2.hashCode()); // o valor será diferente do primeiro
+        System.out.println("\nPizza: " + produto2.getNome() + "\nValor a pagar: R$"+produto2.getPreco()); // Imprime os valor da pizza e seus complementos
     }
 }
