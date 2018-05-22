@@ -7,18 +7,24 @@ package Pizzaria.source.beans;
 
 /**
  *
- * @author carlysson
+ * @author Marciano
  */
-public class PizzaDecorator extends Pizza{
-    protected Pizza pizza;
-    
-    PizzaDecorator(Pizza pizza){
-        this.pizza = pizza;
+public abstract class PizzaDecorator implements Pedido{
+    protected Pedido pedido;
+    protected String nome;
+    protected double preco;
+
+    public PizzaDecorator(String nome, double preco, Pedido pedido) {
+        this.nome = nome;
+        this.preco = preco;
+        this.pedido = pedido;
     }
-    
-    @Override
-    public int getPrecoPizza() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+    // O preço é delegado para a implementação concreta
+    public abstract double getPreco();
+
+    // Label default é fornecido
+    public String getLabel() {
+        return pedido.getNome() + ", " + this.nome; // alteração do comportamento em tempo de execução (retorno do nome da pizza + do complemento que foi pedido)
     }
-    
 }

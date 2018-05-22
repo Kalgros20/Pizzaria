@@ -9,6 +9,7 @@ package Pizzaria.source.beans;
  *
  * @author carlysson
  */
-public class Pedido {
-    public String id;
+public interface Pedido {
+    public String getNome();
+    public double getPreco();
 }

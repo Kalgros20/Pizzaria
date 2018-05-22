@@ -10,7 +10,25 @@ package Pizzaria.source.beans;
  *
  * @author carlysson
  */
-public abstract class Pizza {
-    public String nome;
-    public abstract int getPrecoPizza();
+public class Pizza implements Pedido{
+    private String nome;
+    private double preco;
+    
+    public Pizza(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    
+    @Override
+    public String getNome() {
+        return this.nome;
+    }
+
+    @Override
+    public double getPreco() {
+        return this.preco;
+    }
+    
+    
 }
