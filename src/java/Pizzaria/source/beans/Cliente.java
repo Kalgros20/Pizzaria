@@ -17,9 +17,11 @@ public enum Cliente { // Singleton implementado via enumeração
     
     Cliente(){} // Construtor private(por padrão) vazio
     
-    public void NovoCliente(String nome, String endereco){        
-        this.INSTANCE.setNome(nome);
-        this.INSTANCE.setEndereco(endereco);        
+    public Cliente NovoCliente(String nome, String endereco){
+        Cliente cliente = Cliente.INSTANCE;
+        cliente.setNome(nome);
+        cliente.setEndereco(endereco);        
+        return cliente; 
     }
     
     public void ExibeCliente(){        

@@ -10,23 +10,24 @@ package Pizzaria.source.beans;
  * @author Marciano
  */
 public class Teste {
-    public static void main(String[] args){        
-        Cliente cli = null;
-        cli.INSTANCE.NovoCliente("Victor Marciano", "Rua Lourdes Rabello - Vila Galvão");
-        cli.INSTANCE.ExibeCliente();
+    public static void main(String[] args){      
+        // Criação de um novo pedido através de composição e polimorfismo
         
-        Produto produto1 = new Pizza("Pizza com Decorator", 10); // atribuição dos valores da pizza no pedido
-        produto1 = new Complemento("Borda Recheada", 5, produto1); // Pizza "Decorada" 
+        Pedido pedido = new PedidoFimDeSemana();
+        pedido.produto = new Pizza("Pizza de Calabresa", 10);
+        pedido.cliente = Cliente.INSTANCE.NovoCliente("Victor Marciano", "Vila Galvão"); // Cliente Singleton
         
-        System.out.println("Pizza: " + produto1.getNome() + "\nValor a pagar: R$"+produto1.getPreco()); // Imprime os valor da pizza e seus complementos
-        //System.out.println("Cliente: " + cli.INSTANCE.getNome() + "\nEndereço: "+cli.INSTANCE.getEndereco());
+        System.out.println(" \nCliente: " +pedido.cliente.getNome() + "\nEndereço: " + pedido.cliente.getEndereco());
+        System.out.println(" Produtos : " +pedido.produto.getNome());
+        System.out.println(" Valor a pagar : " +pedido.produto.getPreco());
         
-        Cliente cli2 = null;
-        cli2.INSTANCE.NovoCliente("Maria das Dores", "Avenida Timóteo Penteado - Centro"); // sobrescreve a instancia ja existente
-        cli2.INSTANCE.ExibeCliente(); // exibe os dados do novo cliente e o valor do objeto(se for igual o anterior o Singleton está correto)
-                                
-        Produto produto2 = new Pizza("Pizza sem Decorator", 10); // Pizza sem implementação do decorator
+        Pedido pedido2 = new PedidoMeioDaSemana(); 
+        pedido2.produto = new Pizza("Pizza de Mussarela", 15);
+        pedido2.produto = new Complemento("Borda recheada com Catupiry" , 5 , pedido2.produto); // Pizza com decorator
+        pedido2.cliente = Cliente.INSTANCE.NovoCliente("Maria das dores", "Centro"); // Cliente Singleton(mesmo objeto)
         
-        System.out.println("\nPizza: " + produto2.getNome() + "\nValor a pagar: R$"+produto2.getPreco()); // Imprime os valor da pizza e seus complementos
+        System.out.println(" \nCliente: " +pedido2.cliente.getNome() + "\nEndereço: " + pedido2.cliente.getEndereco());
+        System.out.println(" Produtos : " +pedido2.produto.getNome());
+        System.out.println(" Valor a pagar : " +pedido2.produto.getPreco());
     }
 }

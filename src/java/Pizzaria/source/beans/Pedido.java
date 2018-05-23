@@ -9,7 +9,9 @@ package Pizzaria.source.beans;
  *
  * @author Marciano
  */
-public abstract class Pedido {
+public abstract class Pedido {    
+    Cliente cliente;
+    Produto produto;   
     
     final void NovoPedido() { // TEMPLATE METHOD
         getProduto();
@@ -17,15 +19,17 @@ public abstract class Pedido {
         AplicaDesconto();
     }
 
+    // método de desconto terá comportamento alterado dependendo da classe que o chamar
+    
     abstract void AplicaDesconto();    
     
-    final void getProduto(){
-        
+    // métodos que não sofrerão alteração de comportamento
+    
+    final void getProduto(){        
+        System.out.println("Produto adicionado ao pedido");
     }
     
     final void getCliente(){
-        
-    }
-   
-    
+        System.out.println("Cliente adicionado ao pedido");
+    }       
 }
