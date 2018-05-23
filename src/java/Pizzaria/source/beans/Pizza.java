@@ -31,7 +31,6 @@ public class Pizza implements Produto{
     @Override
     public double getPreco() {
         return this.preco;
-    }
-    
+    }   
     
 }

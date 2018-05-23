@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
  * @author Marciano
  */
 public interface Tarefa {
-    String executa(HttpServletRequest req, HttpServletResponse resp);
-    Boolean verificaPermissao();
+    String executa(HttpServletRequest req, HttpServletResponse resp);    
 }
 

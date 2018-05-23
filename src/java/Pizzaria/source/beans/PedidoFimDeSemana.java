@@ -13,6 +13,6 @@ public class PedidoFimDeSemana extends Pedido {
 
     @Override
     void AplicaDesconto() {
-        System.out.println("Pedido no fim de semana não recebe desconto!!");
+        System.out.println("Pedido no fim de semana não recebe desconto!!");        
     }   
 }
