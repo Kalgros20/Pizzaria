@@ -6,8 +6,6 @@
 package Pizzaria.source.servlets;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -26,10 +24,7 @@ public class Controller extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // tarefa
         String tarefa = req.getParameter("tarefa");
-        
-        //recebendo o metodo
-        String metodo = req.getParameter("metodo");
-        
+      
         if(tarefa == null) {
             throw new IllegalArgumentException("Você esqueceu de informar a tarefa!");
         }
@@ -38,32 +33,15 @@ public class Controller extends HttpServlet {
             tarefa = "servlets." + tarefa;
             Class<?> classe = Class.forName(tarefa);
             Tarefa instancia = (Tarefa) classe.newInstance();
-            String pagina = null;
-            
-            if(metodo == null) {
-                pagina = instancia.executa(req, resp);
-            } else {
-                Method[] declaredMethods = classe.getDeclaredMethods();
-                for (Method method : declaredMethods) {
-                    String nomeMetodo = method.getName();
-                    if(nomeMetodo.equals(metodo)){
-                        method.setAccessible(true);
-                        Object o = method.invoke(instancia, req, resp );
-                        pagina = (String)o;
-                    }
-                } 
-            }
-            
+            String pagina = null;            
+            pagina = instancia.executa(req, resp);           
             RequestDispatcher requestDispatcher = req.getRequestDispatcher(pagina);
             requestDispatcher.forward(req, resp);
-
         }
         catch (ClassNotFoundException | InstantiationException | IllegalAccessException ex) {
             System.out.println(ex.toString());
         } catch (IllegalArgumentException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InvocationTargetException ex) {
-            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);        
         }
     }
 }

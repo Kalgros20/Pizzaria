@@ -6,7 +6,7 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Pizzaria PWE</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -18,6 +18,23 @@ and open the template in the editor.
                 <a href="singleton.html"><li>Singleton</li></a>
                 <a href="TemplateMethods.html"><li>TemplateMethods</li></a>
             </ul>
+        </div>
+        
+        <div>
+            <h2>Novo Pedido</h2>
+            <form action="Controller" method="GET">
+                Nome do Cliente<input type="text" name="nome_cliente"><br><br>
+                Endereço do Cliente<input type="text" name="endereco"><br><br>
+                Escolha sua pizza:
+            <select name="nomePizza">
+                <option value="mussarela">Mussarela</option>
+                <option value="calabresa">Calabresa</option>
+                <option value="Frango Catup">Frango C/Catupiry</option>
+            </select>
+                <input type="hidden" value="10" name="valor">
+                <input type="hidden" name="tarefa" value="NovoPedido">
+                <br><button type="submit">Finalizar Pedido</button>
+            </form>            
         </div>
     </body>
 </html>

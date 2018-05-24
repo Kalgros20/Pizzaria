@@ -9,7 +9,7 @@ package Pizzaria.source.beans;
  *
  * @author Marciano
  */
-public class Complemento extends PizzaDecorator{
+public class Complemento extends PizzaDecorator{ // Decorator CONCRETO
     public Complemento(String label, double preco, Produto pedido) {
         super(label, preco, pedido);
     }

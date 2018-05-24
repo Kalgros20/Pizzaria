@@ -9,7 +9,7 @@ package Pizzaria.source.beans;
  *
  * @author Marciano
  */
-public abstract class PizzaDecorator implements Produto{
+public abstract class PizzaDecorator implements Produto{ // DECORATOR ABSTRATO
     protected Produto pedido;
     protected String nome;
     protected double preco;

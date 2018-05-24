@@ -10,17 +10,13 @@ package Pizzaria.source.beans;
  *
  * @author carlysson
  */
-public class Pizza implements Produto{
+public enum Pizza implements Produto{
+    INSTANCE;
     private String nome;
     private double preco;
     
-    public Pizza(String nome, double preco) {
-        this.nome = nome;
-        this.preco = preco;
-    }
-    
-    public void exibePizza(){
-        System.out.println("Pizza: " + this.getNome() + "\nValor a pagar: R$" + this.getPreco());
+    Pizza(){
+        
     }
     
     @Override
@@ -31,6 +27,13 @@ public class Pizza implements Produto{
     @Override
     public double getPreco() {
         return this.preco;
-    }   
-    
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }    
 }

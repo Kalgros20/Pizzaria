@@ -11,12 +11,13 @@ package Pizzaria.source.beans;
  */
 public class Teste {
     public static void main(String[] args){      
-        // Criação de um novo pedido através de composição e polimorfismo com o Template method implementado
+        // Testando a Criação de um novo pedido através de composição e polimorfismo com o Template method implementado
         
         // Exemplo (TESTE)
-        
-        Pedido pedido = new PedidoMeioDaSemana();                
-        pedido.NovoPedido(); // CHAMADA DO MÉTODO TEMPLATE
+        String a = "Victor Marciano",b = "Centro",c = "Pizza Calabresa";
+        double d = 15;
+        Pedido pedido = new PedidoMeioDaSemana();
+        pedido.NovoPedido(a,b,c,d);// TESTE CHAMADA DO MÉTODO TEMPLATE
         
         System.out.println(" \nCliente: " +pedido.cliente.getNome() + "\nEndereço: " + pedido.cliente.getEndereco());        
         System.out.println(" \nProduto: " +pedido.produto.getNome() + "\nValor a pagar: R$" + pedido.produto.getPreco());       
