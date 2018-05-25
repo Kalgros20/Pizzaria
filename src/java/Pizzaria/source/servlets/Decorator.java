@@ -10,6 +10,7 @@ import Pizzaria.source.beans.Pizza;
 import Pizzaria.source.beans.Produto;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -61,6 +62,8 @@ public class Decorator extends HttpServlet {
         
         //Produto produto1 = new Pizza(nome, parseDouble); // atribuição dos valores da pizza no pedido
         System.out.println("entrou na servlet");
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("WEB-INF/paginas/exibePedido.jsp");
+            requestDispatcher.forward(request, response);
     }
 
 }
