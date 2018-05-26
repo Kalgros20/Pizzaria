@@ -12,6 +12,11 @@
         <title>Exibe Pedido</title>
     </head>
     <body>
-        <h4>Pedido</h4>
+        <h4>Resumo do Pedido: </h4>
+        Nome da pizza: ${produto.nome}<br>
+        Valor: ${produto.preco}<br>
+        Endereço de Entrega: ${cliente.endereco}<br>
+        
+        
     </body>
 </html>

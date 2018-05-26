@@ -12,26 +12,25 @@ and open the template in the editor.
     </head>
     <body>
         <h1>Bem Vindo a Sistema de Pizzaria</h1>
-        <div>
-            <ul>
-                <a href="decorator.html"><li>Decorator</li></a>
-                <a href="singleton.html"><li>Singleton</li></a>
-                <a href="TemplateMethods.html"><li>TemplateMethods</li></a>
-            </ul>
-        </div>
-        
+
         <div>
             <h2>Novo Pedido</h2>
             <form action="Controller" method="GET">
                 Nome do Cliente<input type="text" name="nome_cliente"><br><br>
                 Endereço do Cliente<input type="text" name="endereco"><br><br>
                 Escolha sua pizza:
-            <select name="nomePizza">
-                <option value="mussarela">Mussarela</option>
-                <option value="calabresa">Calabresa</option>
-                <option value="Frango Catup">Frango C/Catupiry</option>
-            </select>
-                <input type="hidden" value="10" name="valor">
+                <select name="nomePizza">
+                    <option value="mussarela">Mussarela</option>
+                    <option value="calabresa">Calabresa</option>
+                    <option value="Frango Catup">Frango C/Catupiry</option>
+                </select>
+                Borda recheada:
+                <select name="complemento">
+                    <option value="Catupiry">Catupiry</option>
+                    <option value="Cheddar">Cheddar</option>
+                    <option value="Cream Cheese">Cream Cheese</option>
+                </select>
+                <input type="hidden" value="10" name="valorPizza">
                 <input type="hidden" name="tarefa" value="NovoPedido">
                 <br><button type="submit">Finalizar Pedido</button>
             </form>            

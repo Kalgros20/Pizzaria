@@ -12,6 +12,7 @@ package Pizzaria.source.beans;
 public abstract class Pedido {    
     public Cliente cliente;
     public Produto produto;   
+    public Complemento cpl;
     
     public final void NovoPedido(String cliente, String endereco, String pizza, double valor) { // TEMPLATE METHOD
         NovoProduto(pizza, valor);
@@ -29,13 +30,15 @@ public abstract class Pedido {
         Pizza.INSTANCE.setNome(nome);
         Pizza.INSTANCE.setPreco(valor);
         this.produto = Pizza.INSTANCE;
-        //this.produto = new Complemento("borda recheada de catupiry", 5, produto); // adicionando complemento com DECORATOR
-        //this.produto = new Complemento("Coca Cola 2Litros", 7, produto); // adicionando complemento com DECORATOR        
     }
     
     public final void NovoCliente(String nome, String endereco){         
         Cliente.INSTANCE.setNome(nome); // criação do objeto Singleton
         Cliente.INSTANCE.setEndereco(endereco); // sobreescrita de atributo via setter
         this.cliente = Cliente.INSTANCE; // sobreescrita de atributo via setter        
-    }       
+    }
+    
+    public final void novoComplemento(String complemento, double valor){
+        this.produto = new Complemento(complemento, valor, produto); // adicionando complemento com DECORATOR
+    }
 }
