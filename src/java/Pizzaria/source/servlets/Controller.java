@@ -30,7 +30,7 @@ public class Controller extends HttpServlet {
         }
         
         try {
-            tarefa = "servlets." + tarefa;
+            tarefa = "Pizzaria.source.servlets." + tarefa;
             Class<?> classe = Class.forName(tarefa);
             Tarefa instancia = (Tarefa) classe.newInstance();
             String pagina = null;            

@@ -35,5 +35,5 @@ public enum Pizza implements Produto{
 
     public void setPreco(double preco) {
         this.preco = preco;
-    }    
+    }
 }
