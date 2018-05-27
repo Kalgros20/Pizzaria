@@ -33,6 +33,7 @@ public enum Pizza implements Produto{
         this.nome = nome;
     }
 
+    @Override
     public void setPreco(double preco) {
         this.preco = preco;
     }

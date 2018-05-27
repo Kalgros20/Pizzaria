@@ -13,10 +13,9 @@
     </head>
     <body>
         <h4>Resumo do Pedido: </h4>
-        Nome da pizza: ${produto.nome}<br>
-        Valor: ${produto.preco}<br>
-        Endereço de Entrega: ${cliente.endereco}<br>
-        
+        Produto: ${produto.nome}<br>
+        Valor: R$ ${produto.preco}<br>
+        Endereço de Entrega: ${cliente.endereco}<br>       
         
     </body>
 </html>

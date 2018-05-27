@@ -23,4 +23,9 @@ public class Complemento extends PizzaDecorator{ // Decorator CONCRETO
     public String getNome() {
         return pedido.getNome()+ " + " + this.nome;
     }
+
+    @Override
+    public void setPreco(double preco) {
+        
+    }
 }
