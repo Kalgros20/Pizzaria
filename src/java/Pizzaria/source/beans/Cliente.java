@@ -32,7 +32,5 @@ public enum Cliente { // Singleton implementado via enumeração
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    
+    }    
 }

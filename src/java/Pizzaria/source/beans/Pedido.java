@@ -18,7 +18,8 @@ public abstract class Pedido {
         NovoProduto(pizza, valor);
         novoComplemento(complemento);
         AplicaDesconto();
-        NovoCliente(cliente, endereco);                
+        NovoCliente(cliente, endereco);
+        
     }
 
     // método de desconto terá comportamento alterado dependendo da classe que o chamar
@@ -58,4 +59,13 @@ public abstract class Pedido {
         } 
         return valor;
     }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+    
 }
