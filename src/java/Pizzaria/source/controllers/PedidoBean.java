@@ -5,9 +5,13 @@
  */
 package Pizzaria.source.controllers;
 
+import Pizzaria.source.beans.Cliente;
+import Pizzaria.source.beans.Complemento;
 import Pizzaria.source.beans.Pedido;
 import Pizzaria.source.beans.PedidoFimDeSemana;
 import Pizzaria.source.beans.PedidoMeioDaSemana;
+import Pizzaria.source.beans.Pizza;
+import Pizzaria.source.beans.Produto;
 import javax.faces.bean.ManagedBean;
 
 /**
@@ -16,13 +20,20 @@ import javax.faces.bean.ManagedBean;
  */
 @ManagedBean(name="PedidoBean", eager=true)
 public class PedidoBean {    
-    String nomeCliente, endereco, nomePizza, complemento;   
+    // declarando atributos do controller (semelhante ao servlet)
+    String nomeCliente, endereco, nomePizza, complemento;  
     Pedido pedido = new PedidoFimDeSemana();
+    Produto produto = Pizza.INSTANCE;
+    Cliente cliente = Cliente.INSTANCE;
     
-    public String novoPedido(){                
-        this.pedido.NovoPedido(nomeCliente, endereco, nomePizza, 0, complemento);        
+    public PedidoBean(){ // construtor do bean
+    }
+    
+    public String novoPedido(){ // chamada do template method
+        System.out.println("Chamou o metodo NovoPedido");
+        this.pedido.NovoPedido(nomeCliente, endereco, nomePizza, 0, complemento);               
         return "exibePedido?faces-redirect=true";      
-    }  
+    } 
     
     public Pedido getPedido() {
         return pedido;
@@ -62,5 +73,22 @@ public class PedidoBean {
 
     public void setComplemento(String complemento) {
         this.complemento = complemento;
-    }   
+    }  
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }    
+    
 }
