@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Exibindo Pedido</title>
+    </h:head>
+    <h:body> 
+        <h:form>  
+            <p:menubar>
+                <p:menuitem value="Início" action="pagInicial.xhtml" />
+                <p:menuitem value="Fazer Pedido" action="index.xhtml" />
+                <p:menuitem value="Pizzas" url="pizza.xhtml" />
+                <p:menuitem value="Contato" url="contato.xhtml" />
+            </p:menubar>
+        </h:form>
+        
+    
+      <br/>
+       
+      
+        <p:panel header="Pedido Realizado"  style="width:70%"> 
+           <h:panelGrid columns="2" cellpadding="6">
+            <br>Cliente: #{PedidoBean.cliente.nome} </br>
+            <br>Endereço da entrega: #{PedidoBean.cliente.endereco}</br>
+            <br>Produtos: #{PedidoBean.produto.nome}</br>
+            <br>Valor a pagar: #{PedidoBean.produto.preco}</br>
+           </h:panelGrid> 
+        </p:panel>
+   
+      
+    </h:body>
+</html>
+

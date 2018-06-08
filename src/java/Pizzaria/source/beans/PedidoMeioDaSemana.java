@@ -12,8 +12,9 @@ package Pizzaria.source.beans;
 public class PedidoMeioDaSemana extends Pedido{
 
     @Override
-    void AplicaDesconto() {
-        System.out.println("Pedido no meio da semana ganha desconto de 25% no valor do pedido");        
-    }
-    
+    void AplicaDesconto() {   
+        double precoAtual = this.produto.getPreco();        
+        this.produto.setPreco(precoAtual * 0.75);
+        System.out.println("Pedido no meio da semana ganha desconto de 25% no valor do pedido");
+    }    
 }

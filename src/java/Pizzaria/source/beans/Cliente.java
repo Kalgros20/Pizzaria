@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package Pizzaria.source.beans;
-
 /**
  *
  * @author Marciano
@@ -32,7 +31,5 @@ public enum Cliente { // Singleton implementado via enumeração
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
-    }
-
-    
+    }    
 }

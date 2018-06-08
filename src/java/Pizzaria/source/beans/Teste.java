@@ -16,8 +16,9 @@ public class Teste {
         // Exemplo (TESTE)
         String a = "Victor Marciano",b = "Centro",c = "Pizza Calabresa";
         double d = 15;
+        String e = "borda de chocolate";
         Pedido pedido = new PedidoMeioDaSemana();
-        pedido.NovoPedido(a,b,c,d);// TESTE CHAMADA DO MÉTODO TEMPLATE
+        pedido.NovoPedido(a,b,c,d,e);// TESTE CHAMADA DO MÉTODO TEMPLATE
         
         System.out.println(" \nCliente: " +pedido.cliente.getNome() + "\nEndereço: " + pedido.cliente.getEndereco());        
         System.out.println(" \nProduto: " +pedido.produto.getNome() + "\nValor a pagar: R$" + pedido.produto.getPreco());       
