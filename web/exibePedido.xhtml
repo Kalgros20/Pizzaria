@@ -22,10 +22,10 @@
       
         <p:panel header="Pedido Realizado"  style="width:70%"> 
            <h:panelGrid columns="2" cellpadding="6">
-            <br>Cliente: #{PedidoBean.cliente.nome} </br>
-            <br>Endereço da entrega: #{PedidoBean.cliente.endereco}</br>
-            <br>Produtos: #{PedidoBean.produto.nome}</br>
-            <br>Valor a pagar: #{PedidoBean.produto.preco}</br>
+               <br>Cliente: #{PedidoBean.cliente.nome} </br>
+               <br>Endereço da entrega: #{PedidoBean.cliente.endereco}</br>
+               <br>Produtos: #{PedidoBean.produto.nome}</br>
+               <br>Valor a pagar: R$#{PedidoBean.produto.preco}</br>
            </h:panelGrid> 
         </p:panel>
    

@@ -31,7 +31,7 @@ public class PedidoBean {
     
     public String novoPedido(){ // chamada do template method
         System.out.println("Chamou o metodo NovoPedido");
-        this.pedido.NovoPedido(nomeCliente, endereco, nomePizza, 0, complemento);               
+        this.pedido.NovoPedido(nomeCliente, endereco, nomePizza, complemento);               
         return "exibePedido?faces-redirect=true";      
     } 
     

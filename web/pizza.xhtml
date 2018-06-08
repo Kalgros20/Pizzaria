@@ -16,12 +16,11 @@
             </p:menubar>
         </h:form>
         
-       <p:galleria library="img" var="image" panelWidth="500" panelHeight="313" showCaption="true">
-        <p:graphicImage name="#{image}" alt="Image Description for #{image}" title="#{image}"/>
-       </p:galleria>
+        <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+            <p:graphicImage name="resources/imagens/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+        </p:galleria>
     
       <br/>
-       
       
     </h:body>
 </html>

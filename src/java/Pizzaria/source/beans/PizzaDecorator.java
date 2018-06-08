@@ -10,14 +10,14 @@ package Pizzaria.source.beans;
  * @author Marciano
  */
 public abstract class PizzaDecorator implements Produto{ // DECORATOR ABSTRATO
-    protected Produto pedido;
+    protected Produto produto;
     protected String nome;
     protected double preco;
 
-    public PizzaDecorator(String nome, double preco, Produto pedido) {
+    public PizzaDecorator(String nome, double preco, Produto produto) {
         this.nome = nome;
         this.preco = preco;
-        this.pedido = pedido;
+        this.produto = produto;
     }
 
     // Delegações para a implementação concreta
