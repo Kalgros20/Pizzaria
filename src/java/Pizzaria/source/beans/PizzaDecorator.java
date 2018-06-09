@@ -5,11 +5,22 @@
  */
 package Pizzaria.source.beans;
 
+import javax.decorator.Decorator;
+import javax.decorator.Delegate;
+import javax.enterprise.inject.Any;
+import javax.inject.Inject;
+
 /**
  *
  * @author Marciano
  */
+
+@Decorator
 public abstract class PizzaDecorator implements Produto{ // DECORATOR ABSTRATO
+    @Any
+    @Inject
+    @Delegate
+    
     protected Produto produto;
     protected String nome;
     protected double preco;

@@ -5,13 +5,21 @@
  */
 package Pizzaria.source.beans;
 
+import javax.decorator.Decorator;
+import javax.decorator.Delegate;
+import javax.enterprise.inject.Any;
+import javax.inject.Inject;
+
 /**
  *
  * @author Marciano
  */
-public class Complemento extends PizzaDecorator{ // Decorator CONCRETO
-    public Complemento(String label, double preco, Produto produto) {
-        super(label, preco, produto);
+
+public class Complemento extends PizzaDecorator{ // Decorator CONCRETO     
+    @Inject
+        
+    public Complemento(String nome, double preco, Produto produto) {
+        super(nome, preco, produto);
     }
 
     @Override
@@ -27,5 +35,10 @@ public class Complemento extends PizzaDecorator{ // Decorator CONCRETO
     @Override
     public void setPreco(double preco) {
         
+    }
+
+    @Override
+    public void setNome(String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

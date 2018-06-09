@@ -10,12 +10,13 @@ package Pizzaria.source.beans;
  *
  * @author carlysson
  */
-public enum Pizza implements Produto{ 
-    INSTANCE;
+public class Pizza implements Produto{ 
+    
     private String nome;
     private double preco;    
     
-    Pizza(){
+    public Pizza(){
+        
     }
     
     @Override
@@ -28,6 +29,7 @@ public enum Pizza implements Produto{
         return this.preco;
     }
 
+    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
