@@ -8,27 +8,11 @@
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
-    </servlet>
-    <servlet>
-        <servlet-name>Controller</servlet-name>
-        <servlet-class>Pizzaria.source.servlets.Controller</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>NovoPedido</servlet-name>
-        <servlet-class>Pizzaria.source.servlets.NovoPedido</servlet-class>
-    </servlet>
+    </servlet>   
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Controller</servlet-name>
-        <url-pattern>/Controller</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>NovoPedido</servlet-name>
-        <url-pattern>/NovoPedido</url-pattern>
-    </servlet-mapping>
+    </servlet-mapping>   
     <session-config>
         <session-timeout>
             30

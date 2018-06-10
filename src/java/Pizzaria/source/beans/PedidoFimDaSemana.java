@@ -9,10 +9,12 @@ package Pizzaria.source.beans;
  *
  * @author Marciano
  */
-public class PedidoFimDeSemana extends Pedido {
+public class PedidoFimDaSemana extends Pedido{
 
     @Override
     void AplicaDesconto() {
-        System.out.println("Pedido no fim de semana nao ganha desconto");  
-    }   
+        System.out.println("Pedidos no fim de semana recebem 50% de desconto!!");
+        this.produto = new Desconto("DESCONTO", 0.50, produto);
+    }
+    
 }

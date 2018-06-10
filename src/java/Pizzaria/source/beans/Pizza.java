@@ -18,6 +18,12 @@ public class Pizza implements Produto{
     public Pizza(){
         
     }
+
+    public Pizza(String nome, double preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }    
+    
     
     @Override
     public String getNome() {
@@ -29,12 +35,10 @@ public class Pizza implements Produto{
         return this.preco;
     }
 
-    @Override
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    @Override
     public void setPreco(double preco) {
         this.preco = preco;
     }

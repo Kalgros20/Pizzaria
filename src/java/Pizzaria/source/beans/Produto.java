@@ -11,7 +11,5 @@ package Pizzaria.source.beans;
  */
 public interface Produto {
     public String getNome();
-    public double getPreco();  
-    public void setPreco(double preco);
-    public void setNome(String nome);    
+    public double getPreco();       
 }

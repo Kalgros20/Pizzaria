@@ -11,17 +11,16 @@ import javax.inject.Inject;
  *
  * @author Marciano
  */
-
-public class Complemento extends PizzaDecorator{ // Decorator CONCRETO     
+public class Desconto extends PizzaDecorator{
     @Inject
         
-    public Complemento(String nome, double preco, Produto produto) {
+    public Desconto(String nome, double preco, Produto produto) {
         super(nome, preco, produto);
     }
 
     @Override
     public double getPreco() {
-        return this.preco + produto.getPreco();
+        return produto.getPreco() * this.preco;
     }
 
     @Override

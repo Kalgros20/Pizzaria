@@ -3,55 +3,56 @@
 
 <html   xmlns="http://www.w3.org/1999/xhtml"
         xmlns:h="http://xmlns.jcp.org/jsf/html"
-        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"        
         xmlns:p="http://primefaces.org/ui">
-    
+
     <h:head>
         <title>Pizzaria PWE</title>  
     </h:head>
-    
+
     <h:body> 
-        
         <h:form>  
-            <p:menubar>
-                
-                <p:menuitem value="Fazer Pedido" action="index.xhtml" />
-                <p:menuitem value="Pizzas" url="pizza.xhtml" />
-                <p:menuitem value="Contato" url="contato.xhtml" />
+            <p:menubar>                
+                <p:menuitem value="Fazer Pedido" action="index.xhtml"/>
+                <p:menuitem value="Pizzas" url="pizza.xhtml"/>
+                <p:menuitem value="Contato" url="contato.xhtml" />               
             </p:menubar>
         </h:form>
+
+        <p:messages autoUpdate="true" id="msg"/>
         
         <p:panel header="Novo Pedido" style="width:70%">
-            <h:form>
-            
-                <h:panelGrid columns="2" cellpadding="6">
-                    <h:outputLabel value="Cliente: " for="cliente"/>
-                    <h:inputText id="nomeCliente" value="#{PedidoBean.nomeCliente}"/>
-                     
-                    <h:outputLabel value="Endereço: " for="endereco"/>
-                    <h:inputText id="endereco" value="#{PedidoBean.endereco}"/>
-                    
-                    <h:outputLabel value="Escolha sua Pizza: " for="pizza"/>
-                    <h:selectOneMenu value = "#{PedidoBean.nomePizza}"> 
+            <h:form id="form">
+                <h:panelGrid id="grid" columns="2" cellspacing="6">
+                    <p:outputLabel value="Cliente: " for="nomeCliente"/>
+                    <p:inputText id="nomeCliente" value="#{PedidoBean.nomeCliente}" required="true"/>
+
+                    <p:outputLabel value="Endereço: " for="endereco"/>
+                    <p:inputText id="endereco" value="#{PedidoBean.endereco}" required="true"/>
+
+                    <p:outputLabel value="Escolha sua Pizza: " for="pizza"/>
+                    <p:selectOneMenu id="pizza" value="#{PedidoBean.nomePizza}"> 
                         <f:selectItem itemValue = "Pizza de Mussarela" itemLabel = "Pizza de Mussarela" /> 
                         <f:selectItem itemValue = "Pizza de Calabresa" itemLabel = "Pizza de Calabresa" /> 
                         <f:selectItem itemValue = "Pizza de Frango com Catupiry" itemLabel = "Pizza de Frango com Catupiry" />
-                    </h:selectOneMenu> 	
-                    
-                    <h:outputLabel value="Complemento:" for="complemento"/>
-                    <h:selectOneMenu value = "#{PedidoBean.complemento}"> 
-                        <f:selectItem itemValue = "Borda de Cheddar" itemLabel = "Borda de Cheddar" /> 
-                        <f:selectItem itemValue = "Borda de Catupiry" itemLabel = "Borda de Catupiry" /> 
-                        <f:selectItem itemValue = "Borda de Cream Cheese" itemLabel = "Borda de Cream Cheese" />
-                    </h:selectOneMenu> 
+                    </p:selectOneMenu> 	
+
+                    <p:outputLabel value="Complemento:" for="complemento"/>
+                    <p:selectManyCheckbox id="complemento" value="#{PedidoBean.complemento}">
+                        <f:selectItem itemLabel="Borda de Cheddar" itemValue="Borda de Cheddar" />
+                        <f:selectItem itemLabel="Refrigerante 2L" itemValue="Refrigerante 2L" />
+                        <f:selectItem itemLabel="Mini coxinhas" itemValue="Mini coxinhas" />
+                    </p:selectManyCheckbox>     
                 </h:panelGrid> 
-                    <p:separator />
-                    <h:commandButton value="Fazer Pedido" action="#{PedidoBean.novoPedido()}" styleClass="ui-priority-primary"/>
-            
+                <p:separator />
+                                
+                <p:commandButton value="Fazer Pedido" action="#{PedidoBean.show}" styleClass="ui-priority-primary" icon="ui-icon-disk"/>                     
+                <p:commandButton value="Limpar" immediate="true" type="reset" styleClass="ui-priority-primary"/>
+                                   
             </h:form>   
             <br></br>
-         </p:panel>
-        
+        </p:panel>
+        <br />        
     </h:body>
 </html>
 
