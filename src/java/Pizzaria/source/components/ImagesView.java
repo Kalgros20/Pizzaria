@@ -14,11 +14,10 @@ import javax.faces.bean.ManagedBean;
  * @author Marciano
  */ 
 
-@ManagedBean
+@ManagedBean(name = "imagesView")
 public class ImagesView {
      
-    private List<String> images;
-    
+    private List<String> images;   
      
     @PostConstruct
     public void init() {

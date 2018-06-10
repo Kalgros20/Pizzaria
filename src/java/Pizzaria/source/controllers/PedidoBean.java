@@ -28,26 +28,24 @@ public class PedidoBean {
     
     String nomeCliente, endereco, nomePizza, valor;   
     private String[] complemento;
-    private Pedido pedido;
+    private Pedido pedido = new PedidoFimDaSemana();
     private Produto produto;
     private Pizza pizza = new Pizza();
     private Cliente cliente = Cliente.INSTANCE;    
         
-    public String novoPedido(){        
-        this.pedido = new PedidoFimDaSemana();                
-        this.pedido.NovoPedido(nomeCliente, endereco, nomePizza, complemento); // chamada do template method
-        this.pizza.setNome(this.getPedido().getProduto().getNome()); 
-        this.pizza.setPreco(pedido.produto.getPreco());
-        return "exibePedido?faces-redirect=true";      
+    public Pedido getPedidos(){   // exibe Pedido via ajax (Contem erros)     
+        Pedido pedidos = new PedidoFimDaSemana();
+        pedidos.NovoPedido(nomeCliente, endereco, nomePizza, complemento);
+        return pedidos;
     }     
    
-    public void show(){ // método teste de exibição // template method
+    public void show(){ // método teste de exibição 
         this.pedido = new PedidoFimDaSemana();
-        this.pedido.NovoPedido(nomeCliente, endereco, nomePizza, complemento);        
+        this.pedido.NovoPedido(nomeCliente, endereco, nomePizza, complemento);   // chamada do template method     
         System.out.println("\nCliente: " + pedido.cliente.INSTANCE.getNome() + 
                 "\nEndereço da entrega: " + pedido.cliente.INSTANCE.getEndereco());
         System.out.println("\nProdutos: " + pedido.produto.getNome() + 
-                "\nValor a pagar: " + pedido.produto.getPreco());
+                "\nValor a pagar: " + pedido.produto.getPreco());        
     }   
     
     public Pedido getPedido() {

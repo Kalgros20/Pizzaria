@@ -18,17 +18,16 @@
                 <p:menuitem value="Contato" url="contato.xhtml" />               
             </p:menubar>
         </h:form>
-
-        <p:messages autoUpdate="true" id="msg"/>
+        
         
         <p:panel header="Novo Pedido" style="width:70%">
             <h:form id="form">
                 <h:panelGrid id="grid" columns="2" cellspacing="6">
                     <p:outputLabel value="Cliente: " for="nomeCliente"/>
-                    <p:inputText id="nomeCliente" value="#{PedidoBean.nomeCliente}" required="true"/>
+                    <p:inputText id="nomeCliente" value="#{PedidoBean.nomeCliente}" required="true" requiredMessage="Por favor informe o nome do cliente!"/>
 
                     <p:outputLabel value="Endereço: " for="endereco"/>
-                    <p:inputText id="endereco" value="#{PedidoBean.endereco}" required="true"/>
+                    <p:inputText id="endereco" value="#{PedidoBean.endereco}" required="true" requiredMessage="Por favor informe o endereço do cliente!"/>
 
                     <p:outputLabel value="Escolha sua Pizza: " for="pizza"/>
                     <p:selectOneMenu id="pizza" value="#{PedidoBean.nomePizza}"> 
@@ -45,11 +44,20 @@
                     </p:selectManyCheckbox>     
                 </h:panelGrid> 
                 <p:separator />
-                                
-                <p:commandButton value="Fazer Pedido" action="#{PedidoBean.show}" styleClass="ui-priority-primary" icon="ui-icon-disk"/>                     
+                <p:remoteCommand name="rc" update="msgs" actionListener="#{remoteCommandView.execute}" /> 
+                <p:growl id="msgs" showDetail="true" />
+                <p:commandButton value="Fazer Pedido" onclick="rc()" action="#{PedidoBean.show}" styleClass="ui-priority-primary" icon="ui-icon-disk"/>                     
                 <p:commandButton value="Limpar" immediate="true" type="reset" styleClass="ui-priority-primary"/>
-                                   
-            </h:form>   
+                
+                <p:commandButton value="Mostrar Pedido" onclick="PF('dlg').show();" type="button" />
+                
+                <p:dialog header="Seu pedido" widgetVar="dlg" dynamic="true">
+                    <h:outputText value="Cliente: #{PedidoBean.pedidos.cliente.nome}" /><br></br>
+                    <h:outputText value="Endereço: #{PedidoBean.pedidos.cliente.endereco}" /><br></br>
+                    <h:outputText value="Produtos: #{PedidoBean.pedidos.produto.nome}" /><br></br>
+                    <h:outputText value="Valor a pagar: #{PedidoBean.pedidos.produto.preco}" /><br></br>
+                </p:dialog>                   
+            </h:form>                       
             <br></br>
         </p:panel>
         <br />        
